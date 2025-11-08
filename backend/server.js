@@ -1,0 +1,16 @@
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const connectDB = require('./config/db');
+const productRoutes = require('./routes/productRoutes');
+const cartRoutes = require('./routes/cartRoutes');
+const app = express();
+app.use(cors());
+app.use(express.json());
+const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/vibecommerce';
+connectDB(MONGO_URI);
+app.use('/api/products', productRoutes);
+app.use('/api/cart', cartRoutes);
+app.get('/', (req, res) => res.send('Vibe Commerce API'));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

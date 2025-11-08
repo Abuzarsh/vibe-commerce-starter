@@ -1,0 +1,12 @@
+body { font-family: Arial, sans-serif; margin:0; padding:0; }
+.container { padding: 16px; }
+main { display:flex; gap:16px; }
+.products { flex:2; }
+.cart { flex:1; border-left:1px solid #eee; padding-left:16px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,
+1fr)); gap:12px; }
+.card { padding:12px; border:1px solid #ddd; border-radius:8px; }
+.modal { position:fixed; left:50%; top:50%; transform:translate(-50%,-50%);
+background:white; padding:20px; box-shadow:0 8px 24px rgba(0,0,0,0.15); }
+button { cursor:pointer; }
+@media(max-width:800px){ main{flex-direction:column;} }
